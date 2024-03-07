@@ -1,0 +1,13 @@
+---
+- name: loops  of ansible playbook
+  hosts: webservers
+  become: True
+  tacks:
+    - name: install the packages
+      apt: 
+        name: "{{item}}"
+        state: present
+    loops:
+       - git
+       - apache2
+       - wget
